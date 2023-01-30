@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+video {
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+}
+
+.contenedor{
+  margin-top: 50px;
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  padding: 40px 30px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  perspective: 2700px;
+}
+.logoCabecera{
+  margin-top: -300px;
+  margin-left: -55px;
+  max-width: 950px;
+  display: flex;
+  position:absolute;
+  padding: 0;
+}
+.contenedor .cubierta{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+.contenedor .cubierta::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+  opacity: .4;
+  z-index: 100;
+}
+.contenedor #toggle:checked ~ .cubierta{
+  transform: rotateY(-180deg);
+}
+.contenedor #toggle{
+  display: none;
+}
+.contenedor .cubierta img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 12;
+  backface-visibility: hidden;
+}
+.contenedor form {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+
+.contenedor .cotenido_form {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.cotenido_form .fondo_docente,
+.cotenido_form .fondo_alumno{
+  width: calc(100% / 2 -25px);
+}
+form .cotenido_form .titulo{
+  font-size: 36px;
+  font-weight: 400;
+  color: #1C4379;
+  position: relative;
+}
+form .cotenido_form .titulo::before{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background: #1C4379;
+  left: 0;
+  bottom: 0;
+}
+form .fondo_alumno .cotenido_form .titulo::before{
+  width: 20px;
+}
+form .cotenido_form .entradas{
+  margin-top: 30px;
+}
+form .cotenido_form .elementos{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0px;
+  position: relative;
+}
+form .cotenido_form .elementos input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 24px;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.cotenido_form .elementos input:focus,
+.cotenido_form .elementos input:valid{
+  border-color: #1C4379;
+}
+.cotenido_form .elementos i{
+  position: absolute;
+  color: #1C4379;
+  font-size: 26px;
+}
+form .cotenido_form .texto{
+  font-size: 20px;
+  font-weight: 400;
+}
+form .cotenido_form .boton{
+  color: #fff;
+  margin-top: 50px;
+}
+form .cotenido_form .boton input{
+  color: #fff;
+  background: #1C4379;
+  border-radius: 15px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+form .cotenido_form .boton input:hover{
+  background: #39557c;
+}
+form .cotenido_form label{
+  color: #1C4379;
+}
+form .cotenido_form label:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+form .cotenido_form .texto{
+  text-align: center;
+  margin-top: 25px;
+}
+@media (max-width: 730px){
+  .contenedor .cubierta{
+    display: none;
+  }
+  .cotenido_form .fondo_alumno,
+  .cotenido_form .fondo_docente{
+    width: 100%;
+  }
+  .contenedor #toggle{
+    display: none;
+  }
+  .cotenido_form .fondo_alumno{
+    display: none;
+  }
+  .contenedor #toggle:checked ~ form .fondo_alumno{
+    display: block;
+  }
+  .contenedor #toggle:checked ~ form .fondo_docente{
+    display: none;
+  }
+  .logoCabecera{
+    display: none
+  }
+}

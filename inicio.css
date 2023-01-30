@@ -1,0 +1,62 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+body{
+    background: #fff;
+}
+section{
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+}
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../recursos/fondo1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.inicio .imagen img{
+    width: 40vw;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+.inicio .content h3{
+    font-size: 40px;
+    color: black;
+    text-transform: uppercase;
+}
+.inicio .content h3 span{
+    color: rgb(96, 146, 219);
+    text-transform: uppercase;
+}
+
+.inicio .content p{
+    font-size: 24px;
+    color: black;
+    padding: 1rem;
+}
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
